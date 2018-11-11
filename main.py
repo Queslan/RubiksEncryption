@@ -1,39 +1,29 @@
 import cv2
-from fullCube import FullCube as fC
-import imageProcessing as iP
+from FullCube import FullCube as fC
+import ImageProcessing as iP
 
 
-image = iP.getImage('cubesNumbered.png')
-fullCube = fC(iP.makeCubes(image))
-#fullCube.U()
-#fullCube.D()
-#fullCube.F()
-#fullCube.B()
-#fullCube.R()
-#fullCube.L()
+image = iP.get_image('cubesNumbered.png')
+full_cube = fC(iP.make_cubes(image))
+
+#full_cube.up()
+#full_cube.down()
+#full_cube.front()
+#full_cube.back()
+#full_cube.right()
+#full_cube.left()
+#full_cube.left()
 
 
-moves = ['U', 'L', 'D', 'R', 'F', 'B', 'B', 'B', 'U', 'U', 'U', 'L', 'L', 'L']
+#moves = ['U', 'L', 'D', 'R', 'F', 'B', 'B', 'B', 'U', 'U', 'U', 'L', 'L', 'L']
+#moves = ['L', 'R', 'F', 'R', 'B', 'B']
+moves = ['L', 'D', 'D', 'B', 'L', 'R', 'U', 'U', 'LI', 'DI', 'U', 'R', 'F', 'F']
+full_cube.move_cube(moves)
 
-for l in moves:
-    if l == 'U':
-        fullCube.U()
-    elif l == 'D':
-        fullCube.D()
-    elif l == 'F':
-        fullCube.F()
-    elif l == 'B':
-        fullCube.B()
-    elif l == 'R':
-        fullCube.R()
-    elif l == 'L':
-        fullCube.L()
-    else:
-        print("Wrong letter")
-
-newArray = iP.makeCubicCut(fullCube.elements)
+print(full_cube.check_cross_positions())
+full_cube.solve_cube()
+newArray = iP.make_cubic_cut(full_cube.elements)
 cv2.namedWindow('myCube', cv2.WINDOW_NORMAL)
-iP.showImage("myCube", newArray)
-
+iP.show_image("myCube", newArray)
 
 cv2.waitKey(0)
