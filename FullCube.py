@@ -134,24 +134,40 @@ class FullCube:
     def left_invert(self):
         self.make_invert(self.left)
 
+    def middle_rotation(self):  # Middle Right Rotation
+        c = self.elements
+        c[21], c[22], c[23], \
+        c[30], c[31], c[32], \
+        c[39], c[40], c[41], \
+        c[12], c[13], c[14], \
+        = \
+        c[30], c[31], c[32], \
+        c[39], c[40], c[41], \
+        c[12], c[13], c[14], \
+        c[21], c[22], c[23]
+
+    def change_front(self): # Change front to be color from the right
+        self.up()
+        self.middle_rotation()
+        self.down_invert()
+
     def check_cross_positions(self):
-        all_elements = self.elements
-        upper_color = all_elements[4].color
+        elements = self.elements
+        upper_color = elements[4].color
         possible_moves = []
-        if all_elements[1].color != upper_color:
+        if elements[1].color != upper_color:
             possible_moves.append('B')
-        if all_elements[3].color != upper_color:
+        if elements[3].color != upper_color:
             possible_moves.append('L')
-        if all_elements[5].color != upper_color:
+        if elements[5].color != upper_color:
             possible_moves.append('R')
-        if all_elements[7].color != upper_color:
+        if elements[7].color != upper_color:
             possible_moves.append('F')
 
         return possible_moves
 
-    def make_cross(self):
+    def make_upper_cross(self):
         possible_moves = self.check_cross_positions()
-        my_flag = 0
         while len(possible_moves) != 0:
             self.one_movers()
             self.two_movers()
@@ -160,27 +176,27 @@ class FullCube:
             self.move_cube(possible_moves)
 
     def one_movers(self):
-        all_elements = self.elements
-        upper_color = all_elements[4].color
+        elements = self.elements
+        upper_color = elements[4].color
         changes_flag = True
         possible_moves = self.check_cross_positions()
 
         while changes_flag:
-            if 'B' in possible_moves and all_elements[32].color == upper_color:
+            if 'B' in possible_moves and elements[32].color == upper_color:
                 self.back()
-            elif 'B' in possible_moves and all_elements[12].color == upper_color:
+            elif 'B' in possible_moves and elements[12].color == upper_color:
                 self.back_invert()
-            elif 'L' in possible_moves and all_elements[41].color == upper_color:
+            elif 'L' in possible_moves and elements[41].color == upper_color:
                 self.left()
-            elif 'L' in possible_moves and all_elements[21].color == upper_color:
+            elif 'L' in possible_moves and elements[21].color == upper_color:
                 self.left_invert()
-            elif 'R' in possible_moves and all_elements[23].color == upper_color:
+            elif 'R' in possible_moves and elements[23].color == upper_color:
                 self.right()
-            elif 'R' in possible_moves and all_elements[39].color == upper_color:
+            elif 'R' in possible_moves and elements[39].color == upper_color:
                 self.right_invert()
-            elif 'F' in possible_moves and all_elements[14].color == upper_color:
+            elif 'F' in possible_moves and elements[14].color == upper_color:
                 self.front()
-            elif 'F' in possible_moves and all_elements[30].color == upper_color:
+            elif 'F' in possible_moves and elements[30].color == upper_color:
                 self.front_invert()
 
             if possible_moves == self.check_cross_positions():
@@ -188,22 +204,22 @@ class FullCube:
             possible_moves = self.check_cross_positions()
 
     def two_movers(self):
-        all_elements = self.elements
-        upper_color = all_elements[4].color
+        elements = self.elements
+        upper_color = elements[4].color
         changes_flag = True
         possible_moves = self.check_cross_positions()
 
         while changes_flag:
-            if 'B' in possible_moves and all_elements[52].color == upper_color:
+            if 'B' in possible_moves and elements[52].color == upper_color:
                 self.back()
                 self.back()
-            elif 'L' in possible_moves and all_elements[48].color == upper_color:
+            elif 'L' in possible_moves and elements[48].color == upper_color:
                 self.left()
                 self.left()
-            elif 'R' in possible_moves and all_elements[50].color == upper_color:
+            elif 'R' in possible_moves and elements[50].color == upper_color:
                 self.right()
                 self.right()
-            elif 'F' in possible_moves and all_elements[46].color == upper_color:
+            elif 'F' in possible_moves and elements[46].color == upper_color:
                 self.front()
                 self.front()
 
@@ -241,26 +257,188 @@ class FullCube:
                 print("Wrong letter")
 
     def match_middles(self):
-        all_elements = self.elements
-        while all_elements[19].color != all_elements[22].color:
+        elements = self.elements
+        while elements[19].color != elements[22].color:
             self.up()
 
-        while not self.middles_matched():
-            if all_elements[19].color != all_elements[22].color and \
-               all_elements[28].color == all_elements[31].color:
-                self.move_cube(['F', 'U', 'FI', 'U', 'F', 'U', 'U', 'FI'])
+        while not self.middles_matches():
+            if elements[19].color == elements[22].color and \
+               elements[28].color == elements[31].color:
+                self.move_cube(['F', 'U', 'FI', 'U', 'F', 'U', 'U', 'FI', 'U'])
             self.move_cube(['R', 'U', 'RI', 'U', 'R', 'U', 'U', 'RI'])
 
-    def middles_matched(self):
-        all_elements = self.elements
+    def middles_matches(self):
+        elements = self.elements
 
-        if all_elements[19].color == all_elements[22].color and \
-           all_elements[28].color == all_elements[31].color and \
-           all_elements[37].color == all_elements[40].color and \
-           all_elements[10].color == all_elements[13].color:
+        if elements[19].color == elements[22].color and \
+           elements[28].color == elements[31].color and \
+           elements[37].color == elements[40].color and \
+           elements[10].color == elements[13].color:
             return True
         return False
 
+    def match_down_middles(self):
+        elements = self.elements
+        while elements[22].color != elements[25].color:
+            self.down()
+        while not self.down_middle_matches():
+            if elements[22].color == elements[25].color and \
+               elements[31].color == elements[34].color:
+                self.move_cube(['F', 'D', 'FI', 'D', 'F', 'D', 'D', 'FI', 'D'])
+            self.move_cube(['L', 'D', 'LI', 'D', 'L', 'D', 'D', 'LI'])
+
+    def down_middle_matches(self):
+        elements = self.elements
+
+        if elements[22].color == elements[25].color and \
+                elements[31].color == elements[34].color and \
+                elements[40].color == elements[43].color and \
+                elements[13].color == elements[16].color:
+            return True
+        return False
+
+    def match_corners(self):
+        for i in range(4):
+            elements = self.elements
+            up_color = elements[4].color
+            front_color = elements[22].color
+            right_color = elements[31].color
+            option0 = [elements[8].color, elements[20].color, elements[27].color]
+            option1 = [elements[2].color, elements[29].color, elements[36].color]
+            option2 = [elements[0].color, elements[38].color, elements[9].color]
+            option3 = [elements[6].color, elements[11].color, elements[18].color]
+            option4 = [elements[47].color, elements[26].color, elements[33].color]
+            option5 = [elements[53].color, elements[35].color, elements[42].color]
+            option6 = [elements[51].color, elements[44].color, elements[15].color]
+            option7 = [elements[45].color, elements[24].color, elements[17].color]
+            options = [option0, option1, option2, option3, option4, option5, option6, option7]
+
+            for option in options:
+                if up_color in option and front_color in option and right_color in option:
+                    self.put_corner_in(option, options.index(option))
+            self.change_front()
+
+    def put_corner_in(self, option, option_number):
+        elements = self.elements
+        up_color = elements[4].color
+        front_color = elements[22].color
+        right_color = elements[31].color
+
+        if option_number == 0:
+            if up_color == option[0] and front_color == option[1] and right_color == option[2]:
+                return
+            else:
+                self.move_cube(['RI', 'DI', 'R', 'D'])
+        elif option_number == 1:
+            self.move_cube(['BI', 'DI', 'B', 'D'])
+        elif option_number == 2:
+            self.move_cube(['LI', 'D', 'D', 'L'])
+        elif option_number == 3:
+            self.move_cube(['F', 'DI', 'FI', 'D', 'D'])
+        elif option_number == 5:
+            self.move_cube(['DI'])
+        elif option_number == 6:
+            self.move_cube(['D', 'D'])
+        elif option_number == 7:
+            self.move_cube(['D'])
+
+        element_front = elements[26].color
+        element_right = elements[33].color
+
+        if element_front == up_color and element_right == right_color:
+            self.move_cube(['DI', 'RI', 'D', 'R'])
+        elif element_front == front_color and element_right == up_color:
+            self.move_cube(['D', 'F', 'DI', 'FI'])
+        else:
+            self.move_cube(['D', 'F', 'DI', 'DI', 'FI'])
+            self.move_cube(['D', 'F', 'DI', 'FI'])
+
+    def match_middle_corners(self):
+        for x in range(4):
+            for i in range(2):
+                elements = self.elements
+                front_color = elements[22].color
+                right_color = elements[31].color
+                left_color = elements[13].color
+                option0 = [elements[23].color, elements[30].color]
+                option1 = [elements[32].color, elements[39].color]
+                option2 = [elements[41].color, elements[12].color]
+                option3 = [elements[14].color, elements[21].color]
+                option4 = [elements[25].color, elements[46].color]
+                option5 = [elements[34].color, elements[50].color]
+                option6 = [elements[43].color, elements[52].color]
+                option7 = [elements[16].color, elements[48].color]
+                options = [option0, option1, option2, option3, option4, option5, option6, option7]
+                for option in options:
+                    if front_color in option and right_color in option and i == 0:
+                        self.put_middle_corner(option, options.index(option))
+                    elif front_color in option and left_color in option and i == 1:
+                        self.put_middle_corner(option, options.index(option))
+            self.change_front()
+
+    def put_middle_corner(self, option, option_number):
+        elements = self.elements
+        front_color = elements[22].color
+        right_color = elements[31].color
+        left_color = elements[13].color
+        if option_number == 0:
+            if front_color == option[0] and right_color == option[1]:
+                return
+            else:
+                self.move_cube(['DI', 'RI', 'D', 'R', 'D', 'F', 'DI', 'FI', 'D', 'D'])
+        elif option_number == 1:
+            self.move_cube(['DI', 'BI', 'D', 'B', 'D', 'R', 'DI', 'RI', 'D', 'D'])
+        elif option_number == 2:
+            self.move_cube(['D', 'B', 'DI', 'BI', 'DI', 'LI', 'D', 'L', 'D', 'D'])
+        elif option_number == 3:
+            if front_color == option[1] and left_color == option[0]:
+                return
+            else:
+                self.move_cube(['D', 'L', 'DI', 'LI', 'DI',  'FI', 'D', 'F', 'D', 'D'])
+        elif option_number == 5:
+            self.move_cube(['DI'])
+        elif option_number == 6:
+            self.move_cube(['D', 'D'])
+        elif option_number == 7:
+            self.move_cube(['D'])
+
+        element_bottom = elements[46].color
+        element_front = elements[25].color
+
+        if element_bottom == right_color:
+            self.move_cube(['DI', 'RI', 'D', 'R', 'D', 'F', 'DI', 'FI', 'D', 'D'])
+        elif element_bottom == left_color:
+            self.move_cube(['D', 'L', 'DI', 'LI', 'DI', 'FI', 'D', 'F', 'D', 'D'])
+        elif element_front == right_color:
+            self.move_cube(['D', 'D', 'F', 'DI', 'FI', 'DI', 'RI', 'D', 'R'])
+        elif element_front == left_color:
+            self.move_cube(['DI', 'DI', 'FI', 'D', 'F', 'D', 'L', 'DI', 'LI'])
+
+    def make_down_cross(self):
+        elements = self.elements
+        down_color = elements[49].color
+        move = ['F', 'L', 'D', 'LI', 'DI', 'FI']
+
+        if elements[46].color == elements[48].color == elements[49].color\
+                == elements[50].color == elements[52].color:
+            return
+        if elements[46].color != down_color and elements[48].color != down_color\
+           and elements[50].color != down_color and elements[52].color != down_color:
+                self.move_cube(move)
+
+        while elements[50].color != down_color and (elements[52].color != down_color
+                                                    or elements[48].color != down_color):
+            self.down()
+
+        while not (elements[46].color == elements[48].color == elements[49].color
+                   == elements[50].color == elements[52].color):
+            self.move_cube(move)
+
     def solve_cube(self):
-        self.make_cross()
+        self.make_upper_cross()
         self.match_middles()
+        self.match_corners()
+        self.match_middle_corners()
+        self.make_down_cross()
+        self.match_down_middles()
+
