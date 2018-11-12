@@ -434,6 +434,66 @@ class FullCube:
                    == elements[50].color == elements[52].color):
             self.move_cube(move)
 
+    def get_starting_down_corner(self):
+        rotation = 0
+        while not self.good_down_corner():
+            self.change_front()
+            rotation += 1
+            if rotation % 4 == 0:
+                self.move_cube(['L', 'D', 'LI', 'DI', 'RI', 'D', 'L', 'DI', 'R', 'LI'])
+
+    def good_down_corner(self):
+        elements = self.elements
+        corner_colors = [elements[49].color, elements[22].color, elements[13].color ]
+        if elements[24].color in corner_colors and elements[17].color in corner_colors\
+           and elements[45].color in corner_colors:
+            return True
+        return False
+
+    def match_down_corners(self):
+        while not self.down_corners_in_place():
+            self.move_cube(['L', 'D', 'LI', 'DI', 'RI', 'D', 'L', 'DI', 'R', 'LI'])
+
+    def down_corners_in_place(self):
+        elements = self.elements
+        left_color = elements[13].color
+        front_color = elements[22].color
+        down_color = elements[49].color
+        right_color = elements[31].color
+        back_color = elements[40].color
+        c0 = [left_color, front_color, down_color]  # corner 0
+        c1 = [right_color, back_color, down_color]   # corner 1
+        # If three corners are correct then forth one must be correct
+        if elements[17].color in c0 and elements[24].color in c0 and elements[45].color in c0\
+           and elements[35].color in c1 and elements[42].color in c1 and elements[53].color in c1:
+            return True
+        return False
+
+    def put_down_corners_in(self):
+        for i in range(4):
+            while not self.down_corner_in():
+                self.move_cube(['LI', 'UI', 'L', 'U'])
+            self.move_cube(['D'])
+
+    def down_corner_in(self):
+        elements = self.elements
+        down_color = elements[49].color
+        if elements[45].color == down_color:
+            return True
+        return False
+
+    def finish_moves(self):
+        elements = self.elements
+        front_color = elements[22].color
+        while elements[19].color != front_color:
+            self.up()
+        while elements[25].color != front_color:
+            self.down()
+        while front_color != 'yellow':
+            self.change_front()
+            front_color = self.elements[22].color
+            print('Hey')
+
     def solve_cube(self):
         self.make_upper_cross()
         self.match_middles()
@@ -441,4 +501,8 @@ class FullCube:
         self.match_middle_corners()
         self.make_down_cross()
         self.match_down_middles()
+        self.get_starting_down_corner()
+        self.match_down_corners()
+        self.put_down_corners_in()
+        self.finish_moves()
 
