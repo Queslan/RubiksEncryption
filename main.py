@@ -3,7 +3,8 @@ import cv2
 from FullCube import FullCube as fC
 import ImageProcessing as iP
 
-def measureTIme(file_path):
+
+def measure_time(file_path):
     start_time = time.time()
     image = iP.get_image(file_path)
     full_cube = fC(iP.make_cubes(image))
@@ -30,5 +31,6 @@ def measureTIme(file_path):
 #measureTIme('rgb16bit.ppm')
 #measureTIme('rgb16bitL.ppm')
 
-measureTIme("cubesNumbered.png")
+
+measure_time("cubesNumbered.png")
 cv2.waitKey(0)
