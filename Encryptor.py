@@ -6,7 +6,7 @@ import ImageProcessing as iP
 import cv2
 
 image = iP.get_image("bpg_part.png")
-print(image.dtype)
+#print(image.dtype)
 image = image[:, :, 1]
 
 #image = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
@@ -29,6 +29,10 @@ def vector_scrambling():
     generated_vectors = generate_scrambling_vectors(height, width, 8)
     height_vector = generated_vectors[0]
     width_vector = generated_vectors[1]
+    with open("KeyH.txt", "w") as text_file:
+        text_file.write('\n'.join(str(element) for element in height_vector))
+    with open("KeyW.txt", "w") as text_file:
+        text_file.write('\n'.join(str(element) for element in width_vector))
 
     for row in range(height):
         elements_sum = 0
@@ -82,5 +86,6 @@ class Test(unittest.TestCase):
 #unittest.main()
 vector_scrambling()
 
+cv2.imwrite('scrambled.png', image)
 cv2.imshow('My', image)
 cv2.waitKey(0)
