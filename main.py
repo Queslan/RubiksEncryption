@@ -9,16 +9,16 @@ def measure_time(file_path):
     image = iP.get_image(file_path)
     full_cube = fC(iP.make_cubes(image))
 
-    #moves = ['U', 'L', 'D', 'R', 'F', 'B', 'B', 'B', 'U', 'U', 'U', 'L', 'L', 'L']
-    #moves = ['L', 'R', 'F', 'R', 'B', 'B']
-    moves = ['L', 'D', 'D', 'B', 'L', 'R', 'U', 'U', 'LI', 'DI', 'U', 'R', 'F', 'F']
-    full_cube.move_cube(moves)
+    #scramble
+    #moves = ['R', 'U', 'LI', 'U', 'D', 'D', 'R', 'R', 'UI', 'DI', 'L', 'U', 'R', 'F', 'B', 'B']
+    #full_cube.move_cube(moves)
 
     #full_cube.solve_cube()
-    #newArray = iP.make_cubic_cut(full_cube.elements)
+    newArray = iP.make_cubic_cut(full_cube.elements)
     elapsed_time = time.time() - start_time
-    newArray = iP.reassembly_image(full_cube.elements)
+    #newArray = iP.reassembly_image(full_cube.elements)
     cv2.namedWindow('myCube', cv2.WINDOW_NORMAL)
+    cv2.imwrite('cube_start.png', newArray)
     iP.show_image("myCube", newArray)
     print(file_path)
     print(elapsed_time)
@@ -32,5 +32,5 @@ def measure_time(file_path):
 #measureTIme('rgb16bitL.ppm')
 
 
-measure_time("cubesNumbered.png")
+measure_time("rubik_colors.png")
 cv2.waitKey(0)

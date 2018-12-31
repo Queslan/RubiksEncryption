@@ -297,8 +297,18 @@ class FullCube:
             return True
         return False
 
+    def first_layer_not_complete(self):
+        elements = self.elements
+        up_color = elements[4].color
+        if elements[0].color == elements[2].color == elements[6].color == elements[8].color == up_color:
+            print("false")
+            return False
+        print("true")
+        return True
+
     def match_corners(self):
-        for i in range(4):
+        while self.first_layer_not_complete():
+        #for i in range(8):
             elements = self.elements
             up_color = elements[4].color
             front_color = elements[22].color
@@ -495,14 +505,23 @@ class FullCube:
             print('Hey')
 
     def solve_cube(self):
+        #first move
         self.make_upper_cross()
+        #second move
         self.match_middles()
+        #third move
         self.match_corners()
+        #forth move
         self.match_middle_corners()
+        #fifth move
         self.make_down_cross()
+        #sixth move
         self.match_down_middles()
+        #seventh move
         self.get_starting_down_corner()
         self.match_down_corners()
+        #eight move
         self.put_down_corners_in()
+        #finishing move
         self.finish_moves()
 

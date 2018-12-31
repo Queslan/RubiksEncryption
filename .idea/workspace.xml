@@ -19,13 +19,46 @@
     <SUITE FILE_PATH="coverage/RubiksEncryption$Encryptor.coverage" NAME="Encryptor Coverage Results" MODIFIED="1544148488705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RubiksEncryption$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1544146249452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1577586243">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.558" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="1292" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="1292" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="png" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Image" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" selection-start-line="35" selection-end-line="35" selection-end-column="14" />
+            <state relative-caret-position="289">
+              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -33,11 +66,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cubesNumbered.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Encryptor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="454">
+              <caret line="88" column="35" lean-forward="true" selection-start-line="88" selection-end-line="88" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -48,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Decryptor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            <state relative-caret-position="187">
+              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -58,26 +96,77 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bpg_part.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FullCube.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="506" column="8" selection-start-line="506" selection-start-column="8" selection-end-line="506" selection-end-column="8" />
+            <state relative-caret-position="373">
+              <caret line="524" column="23" selection-start-line="524" selection-start-column="23" selection-end-line="524" selection-end-column="23" />
               <folding>
                 <element signature="e#60#84#0" />
+                <element signature="e#126#162#0" />
+                <element signature="e#208#635#0" />
+                <element signature="e#234#423#0" />
+                <element signature="e#446#635#0" />
+                <element signature="e#670#695#0" />
+                <element signature="e#742#1187#0" />
+                <element signature="e#768#966#0" />
+                <element signature="e#989#1187#0" />
+                <element signature="e#1224#1251#0" />
+                <element signature="e#1300#1739#0" />
+                <element signature="e#1326#1521#0" />
+                <element signature="e#1544#1739#0" />
+                <element signature="e#1777#1805#0" />
+                <element signature="e#1853#2290#0" />
+                <element signature="e#1879#2073#0" />
+                <element signature="e#2096#2290#0" />
+                <element signature="e#2327#2354#0" />
+                <element signature="e#2403#2842#0" />
+                <element signature="e#2429#2624#0" />
+                <element signature="e#2647#2842#0" />
+                <element signature="e#2880#2908#0" />
+                <element signature="e#2955#3391#0" />
+                <element signature="e#2981#3175#0" />
+                <element signature="e#3198#3391#0" />
+                <element signature="e#3428#3455#0" />
+                <element signature="e#3521#3795#0" />
+                <element signature="e#3547#3660#0" />
+                <element signature="e#3683#3795#0" />
+                <element signature="e#3989#4448#0" />
+                <element signature="e#4490#4758#0" />
+                <element signature="e#4588#4758#0" />
+                <element signature="e#4794#6006#0" />
+                <element signature="e#4982#6006#0" />
+                <element signature="e#6042#6914#0" />
+                <element signature="e#6230#6914#0" />
+                <element signature="e#6310#6349#0" />
+                <element signature="e#6444#6483#0" />
+                <element signature="e#6578#6619#0" />
+                <element signature="e#6714#6755#0" />
+                <element signature="e#6964#7749#0" />
+                <element signature="e#7000#7749#0" />
+                <element signature="e#7788#8203#0" />
+                <element signature="e#8244#8541#0" />
+                <element signature="e#8585#9005#0" />
+                <element signature="e#8748#9005#0" />
+                <element signature="e#9050#9362#0" />
+                <element signature="e#11964#13229#0" />
+                <element signature="e#11995#13229#0" />
+                <element signature="e#12030#13197#0" />
+                <element signature="e#12895#13197#0" />
+                <element signature="e#13295#14922#0" />
+                <element signature="e#13485#13670#0" />
+                <element signature="e#13948#14133#0" />
+                <element signature="e#14963#15818#0" />
+                <element signature="e#15868#16103#0" />
+                <element signature="e#15936#16103#0" />
+                <element signature="e#16145#16440#0" />
+                <element signature="e#16484#16607#0" />
+                <element signature="e#16654#17316#0" />
+                <element signature="e#17361#17513#0" />
+                <element signature="e#17392#17513#0" />
+                <element signature="e#17553#17707#0" />
+                <element signature="e#17745#18100#0" />
+                <element signature="e#18006#18100#0" />
+                <marker date="1546233631947" expanded="true" signature="9403:9678" ph="..." />
               </folding>
             </state>
           </provider>
@@ -95,7 +184,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageProcessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="493">
               <caret line="31" column="20" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="20" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -127,11 +216,11 @@
         <option value="$PROJECT_DIR$/Element.py" />
         <option value="$PROJECT_DIR$/imageProcessing.py" />
         <option value="$PROJECT_DIR$/fullCube.py" />
-        <option value="$PROJECT_DIR$/FullCube.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/Decryptor.py" />
         <option value="$PROJECT_DIR$/Encryptor.py" />
+        <option value="$PROJECT_DIR$/FullCube.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -155,15 +244,6 @@
             <path>
               <item name="RubiksEncryption" type="b2602c69:ProjectViewProjectNode" />
               <item name="RubiksEncryption" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RubiksEncryption" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-            </path>
-            <path>
-              <item name="RubiksEncryption" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
             </path>
           </expand>
           <select />
@@ -190,7 +270,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Encryptor">
+  <component name="RunManager" selected="Python.main">
     <configuration name="Decryptor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RubiksEncryption" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -310,10 +390,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Encryptor" />
-        <item itemvalue="Python.Decryptor" />
-        <item itemvalue="Python.scratch" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.Decryptor" />
+        <item itemvalue="Python.Encryptor" />
+        <item itemvalue="Python.scratch" />
         <item itemvalue="Python.FullCube" />
       </list>
     </recent_temporary>
@@ -347,22 +427,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18496802" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1845238" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4989339" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" weight="0.39869988" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49627978" visible="true" weight="0.17868853" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" weight="0.39836067" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5021322" side_tool="true" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5037202" side_tool="true" weight="0.32786885" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -395,7 +475,25 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FullCube.py</url>
+          <line>333</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
+    <entry file="file://$PROJECT_DIR$/bpg_part.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Element.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -403,29 +501,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FullCube.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="506" column="8" selection-start-line="506" selection-start-column="8" selection-end-line="506" selection-end-column="8" />
-          <folding>
-            <element signature="e#60#84#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bpg_part.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageProcessing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="493">
           <caret line="31" column="20" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="20" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
@@ -433,32 +511,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" selection-start-line="35" selection-end-line="35" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Decryptor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        <state relative-caret-position="187">
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cubesNumbered.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Encryptor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        <state relative-caret-position="454">
+          <caret line="88" column="35" lean-forward="true" selection-start-line="88" selection-end-line="88" selection-end-column="35" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FullCube.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="524" column="23" selection-start-line="524" selection-start-column="23" selection-end-line="524" selection-end-column="23" />
+          <folding>
+            <element signature="e#60#84#0" />
+            <element signature="e#126#162#0" />
+            <element signature="e#208#635#0" />
+            <element signature="e#234#423#0" />
+            <element signature="e#446#635#0" />
+            <element signature="e#670#695#0" />
+            <element signature="e#742#1187#0" />
+            <element signature="e#768#966#0" />
+            <element signature="e#989#1187#0" />
+            <element signature="e#1224#1251#0" />
+            <element signature="e#1300#1739#0" />
+            <element signature="e#1326#1521#0" />
+            <element signature="e#1544#1739#0" />
+            <element signature="e#1777#1805#0" />
+            <element signature="e#1853#2290#0" />
+            <element signature="e#1879#2073#0" />
+            <element signature="e#2096#2290#0" />
+            <element signature="e#2327#2354#0" />
+            <element signature="e#2403#2842#0" />
+            <element signature="e#2429#2624#0" />
+            <element signature="e#2647#2842#0" />
+            <element signature="e#2880#2908#0" />
+            <element signature="e#2955#3391#0" />
+            <element signature="e#2981#3175#0" />
+            <element signature="e#3198#3391#0" />
+            <element signature="e#3428#3455#0" />
+            <element signature="e#3521#3795#0" />
+            <element signature="e#3547#3660#0" />
+            <element signature="e#3683#3795#0" />
+            <element signature="e#3989#4448#0" />
+            <element signature="e#4490#4758#0" />
+            <element signature="e#4588#4758#0" />
+            <element signature="e#4794#6006#0" />
+            <element signature="e#4982#6006#0" />
+            <element signature="e#6042#6914#0" />
+            <element signature="e#6230#6914#0" />
+            <element signature="e#6310#6349#0" />
+            <element signature="e#6444#6483#0" />
+            <element signature="e#6578#6619#0" />
+            <element signature="e#6714#6755#0" />
+            <element signature="e#6964#7749#0" />
+            <element signature="e#7000#7749#0" />
+            <element signature="e#7788#8203#0" />
+            <element signature="e#8244#8541#0" />
+            <element signature="e#8585#9005#0" />
+            <element signature="e#8748#9005#0" />
+            <element signature="e#9050#9362#0" />
+            <element signature="e#11964#13229#0" />
+            <element signature="e#11995#13229#0" />
+            <element signature="e#12030#13197#0" />
+            <element signature="e#12895#13197#0" />
+            <element signature="e#13295#14922#0" />
+            <element signature="e#13485#13670#0" />
+            <element signature="e#13948#14133#0" />
+            <element signature="e#14963#15818#0" />
+            <element signature="e#15868#16103#0" />
+            <element signature="e#15936#16103#0" />
+            <element signature="e#16145#16440#0" />
+            <element signature="e#16484#16607#0" />
+            <element signature="e#16654#17316#0" />
+            <element signature="e#17361#17513#0" />
+            <element signature="e#17392#17513#0" />
+            <element signature="e#17553#17707#0" />
+            <element signature="e#17745#18100#0" />
+            <element signature="e#18006#18100#0" />
+            <marker date="1546233631947" expanded="true" signature="9403:9678" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
