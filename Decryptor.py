@@ -15,6 +15,21 @@ def load_generate_vectors():
 
 def remove_scramble(scrambled_image):
     for i in range(width):
+        option = i % 2
+        if option != 0:
+            shift = xor_operation(column(scrambled_image, i), width_vector[i])
+        else:
+            shift = xor_operation(column(scrambled_image, i), rotated_width_vector[i])
+        put_column(shift, i, scrambled_image)
+
+    for row in range(height):
+        option = row % 2
+        if option != 0:
+            scrambled_image[row] = xor_operation(scrambled_image[row], height_vector[row])
+        else:
+            scrambled_image[row] = xor_operation(scrambled_image[row], rotated_height_vector[row])
+
+    for i in range(width):
         elements_sum = 0
         for j in range(height):
             elements_sum += scrambled_image[j][i]
@@ -67,6 +82,20 @@ def remove_scramble_color_channels():
     remove_scramble(image_red)
 
 
+def list_180_rotation(source_list):
+    list_to_deque = deque(source_list)
+    list_size = len(source_list)
+    list_to_deque.rotate(list_size)
+    return list(list_to_deque)
+
+
+def xor_operation(source_list, vector_element):
+    copy_to_return = source_list.copy()
+    for element in copy_to_return:
+         element = element ^ vector_element
+    return copy_to_return
+
+
 image_og = iP.get_image('scrambled.png')
 image_blue, image_green, image_red = get_image_color_channels()
 
@@ -75,6 +104,8 @@ cv2.imshow("Scrambled image", image_og)
 height = image_og.shape[0]
 width = image_og.shape[1]
 height_vector, width_vector = load_generate_vectors()
+rotated_height_vector = list_180_rotation(height_vector)
+rotated_width_vector = list_180_rotation(width_vector)
 remove_scramble_color_channels()
 
 

@@ -47,6 +47,21 @@ def vector_scrambling(image):
             shift = circular_shift(-width_vector[i], column(image, i))
         put_column(shift, i, image)
 
+    for row in range(height):
+        option = row % 2
+        if option != 0:
+            image[row] = xor_operation(image[row], height_vector[row])
+        else:
+            image[row] = xor_operation(image[row], rotated_height_vector[row])
+
+    for i in range(width):
+        option = i % 2
+        if option != 0:
+            shift = xor_operation(column(image, i), width_vector[i])
+        else:
+            shift = xor_operation(column(image, i), rotated_width_vector[i])
+        put_column(shift, i, image)
+
 
 def put_column(shifted, column_number, image):
     for j in range(height):
@@ -55,6 +70,21 @@ def put_column(shifted, column_number, image):
 
 def column(matrix, i):
     return [row[i] for row in matrix]
+
+
+def list_180_rotation(source_list):
+    list_to_deque = deque(source_list)
+    list_size = len(source_list)
+    list_to_deque.rotate(list_size)
+    return list(list_to_deque)
+
+
+def xor_operation(source_list, vector_element):
+    copy_to_return = source_list.copy()
+    for element in copy_to_return:
+         element = element ^ vector_element
+    return copy_to_return
+
 
 
 def circular_shift(shift_length, source_list):  # deque.rotate(n) for n > 0 - right, n < 0 - left
@@ -83,6 +113,8 @@ cv2.imshow("Before scramble", image_og)
 height = image_og.shape[0]
 width = image_og.shape[1]
 height_vector, width_vector = generate_scrambling_vectors(8)
+rotated_height_vector = list_180_rotation(height_vector)
+rotated_width_vector = list_180_rotation(width_vector)
 scramble_color_channels()
 
 
