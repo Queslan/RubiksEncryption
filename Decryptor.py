@@ -2,13 +2,6 @@ import cv2
 import ImageProcessing as iP
 from collections import deque
 
-image_og = iP.get_image('scrambled.png')
-image_blue = image_og[:, :, 0]
-image_green = image_og[:, :, 1]
-image_red = image_og[:, :, 2]
-
-cv2.imshow("my_image", image_og)
-
 
 def load_generate_vectors():
     with open('KeyH.txt') as f:
@@ -21,12 +14,6 @@ def load_generate_vectors():
 
 
 def remove_scramble(scrambled_image):
-    my_vectors = load_generate_vectors()
-    height_vector = my_vectors[0]
-    width_vector = my_vectors[1]
-    height = scrambled_image.shape[0]
-    width = scrambled_image.shape[1]
-
     for i in range(width):
         elements_sum = 0
         for j in range(height):
@@ -53,8 +40,6 @@ def remove_scramble(scrambled_image):
 
 
 def put_column(shifted, column_number, scrambled_image):
-    height = scrambled_image.shape[0]
-
     for j in range(height):
         scrambled_image[j][column_number] = shifted[j]
 
@@ -69,10 +54,30 @@ def circular_shift(shift_length, source_list):
     return list(list_to_deque)
 
 
-remove_scramble(image_blue)
-remove_scramble(image_green)
-remove_scramble(image_red)
+def get_image_color_channels():
+    blue = image_og[:, :, 0]
+    green = image_og[:, :, 1]
+    red = image_og[:, :, 2]
+    return blue, green, red
 
-iP.show_image("THis", image_og)
+
+def remove_scramble_color_channels():
+    remove_scramble(image_blue)
+    remove_scramble(image_green)
+    remove_scramble(image_red)
+
+
+image_og = iP.get_image('scrambled.png')
+image_blue, image_green, image_red = get_image_color_channels()
+
+cv2.imshow("Scrambled image", image_og)
+
+height = image_og.shape[0]
+width = image_og.shape[1]
+height_vector, width_vector = load_generate_vectors()
+remove_scramble_color_channels()
+
+
+iP.show_image("Scramble removed", image_og)
 
 cv2.waitKey(0)

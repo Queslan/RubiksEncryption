@@ -34,13 +34,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="1741" />
+          <entry key="py" value="2163" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="1741" />
+          <entry key="Python" value="2163" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -74,25 +74,28 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Encryptor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="-277">
+              <caret line="59" column="97" selection-start-line="59" selection-start-column="97" selection-end-line="59" selection-end-column="97" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+                <marker date="1546486841549" expanded="true" signature="1969:2377" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Decryptor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="46">
+              <caret line="70" selection-start-line="70" selection-end-line="70" selection-end-column="63" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+                <marker date="1546486703638" expanded="true" signature="1652:1770" ph="..." />
+                <marker date="1546486703638" expanded="true" signature="1807:2053" ph="..." />
               </folding>
             </state>
           </provider>
@@ -204,8 +207,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/FullCube.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/Encryptor.py" />
         <option value="$PROJECT_DIR$/Decryptor.py" />
+        <option value="$PROJECT_DIR$/Encryptor.py" />
       </list>
     </option>
   </component>
@@ -479,16 +482,6 @@
     <entry file="file://$PROJECT_DIR$/bpg_part.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FullCube.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4777">
@@ -569,22 +562,35 @@
     <entry file="file://$PROJECT_DIR$/cubesNumbered.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Encryptor.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="307">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Decryptor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="46">
+          <caret line="70" selection-start-line="70" selection-end-line="70" selection-end-column="63" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+            <marker date="1546486703638" expanded="true" signature="1652:1770" ph="..." />
+            <marker date="1546486703638" expanded="true" signature="1807:2053" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Encryptor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-277">
+          <caret line="59" column="97" selection-start-line="59" selection-start-column="97" selection-end-line="59" selection-end-column="97" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <marker date="1546486841549" expanded="true" signature="1969:2377" ph="..." />
           </folding>
         </state>
       </provider>
