@@ -1,9 +1,13 @@
 import cv2
-import ImageProcessing as IP
+import ImageProcessing as iP
 from collections import deque
 
-scrambled_image = IP.get_image('scrambled.png')
-scrambled_image = scrambled_image[:, :, 1]
+image_og = iP.get_image('scrambled.png')
+image_blue = image_og[:, :, 0]
+image_green = image_og[:, :, 1]
+image_red = image_og[:, :, 2]
+
+cv2.imshow("my_image", image_og)
 
 
 def load_generate_vectors():
@@ -16,7 +20,7 @@ def load_generate_vectors():
     return vectors
 
 
-def remove_scramble():
+def remove_scramble(scrambled_image):
     my_vectors = load_generate_vectors()
     height_vector = my_vectors[0]
     width_vector = my_vectors[1]
@@ -34,7 +38,7 @@ def remove_scramble():
             shift = circular_shift(-width_vector[i], column(scrambled_image, i))
         else:
             shift = circular_shift(width_vector[i], column(scrambled_image, i))
-        put_column(shift, i)
+        put_column(shift, i, scrambled_image)
 
     for row in range(height):
         elements_sum = 0
@@ -48,7 +52,7 @@ def remove_scramble():
             scrambled_image[row] = circular_shift(height_vector[row], scrambled_image[row])
 
 
-def put_column(shifted, column_number):
+def put_column(shifted, column_number, scrambled_image):
     height = scrambled_image.shape[0]
 
     for j in range(height):
@@ -65,8 +69,10 @@ def circular_shift(shift_length, source_list):
     return list(list_to_deque)
 
 
-remove_scramble()
+remove_scramble(image_blue)
+remove_scramble(image_green)
+remove_scramble(image_red)
 
-IP.show_image("THis", scrambled_image)
+iP.show_image("THis", image_og)
 
 cv2.waitKey(0)

@@ -5,9 +5,14 @@ import unittest
 import ImageProcessing as iP
 import cv2
 
-image = iP.get_image("bpg_part.png")
-#print(image.dtype)
-image = image[:, :, 1]
+# B G R
+image_og = iP.get_image("bpg_part.png")
+image_blue = image_og[:, :, 0]
+image_green = image_og[:, :, 1]
+image_red = image_og[:, :, 2]
+
+
+cv2.imshow("my_image", image_og)
 
 #image = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
@@ -21,18 +26,25 @@ def generate_scrambling_vectors(height, width, image_bit_size):  # (1)
 
     vectors = [height_vector, width_vector]
 
-    return vectors
-
-def vector_scrambling():
-    height = image.shape[0]
-    width = image.shape[1]
-    generated_vectors = generate_scrambling_vectors(height, width, 8)
-    height_vector = generated_vectors[0]
-    width_vector = generated_vectors[1]
     with open("KeyH.txt", "w") as text_file:
         text_file.write('\n'.join(str(element) for element in height_vector))
     with open("KeyW.txt", "w") as text_file:
         text_file.write('\n'.join(str(element) for element in width_vector))
+    return vectors
+
+def load_generate_vectors():
+    with open('KeyH.txt') as f:
+        height_vector = list(map(int, f.read().splitlines()))
+    with open('KeyW.txt') as f:
+        width_vector = list(map(int, f.read().splitlines()))
+
+    vectors = [height_vector, width_vector]
+    return vectors
+
+def vector_scrambling(image):
+    my_vectors = load_generate_vectors()
+    height_vector = my_vectors[0]
+    width_vector = my_vectors[1]
 
     for row in range(height):
         elements_sum = 0
@@ -56,10 +68,10 @@ def vector_scrambling():
             shift = circular_shift(width_vector[i], column(image, i))
         else:
             shift = circular_shift(-width_vector[i], column(image, i))
-        put_column(shift, i)
+        put_column(shift, i, image)
 
 
-def put_column(shifted, column_number):
+def put_column(shifted, column_number, image):
     height = image.shape[0]
 
     for j in range(height):
@@ -84,8 +96,13 @@ class Test(unittest.TestCase):
 
 
 #unittest.main()
-vector_scrambling()
+height = image_og.shape[0]
+width = image_og.shape[1]
+generated_vectors = generate_scrambling_vectors(height, width, 8)
+vector_scrambling(image_blue)
+vector_scrambling(image_green)
+vector_scrambling(image_red)
 
-cv2.imwrite('scrambled.png', image)
-cv2.imshow('My', image)
+cv2.imwrite('scrambled.png', image_og)
+cv2.imshow('My', image_og)
 cv2.waitKey(0)
