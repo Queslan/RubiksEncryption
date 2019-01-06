@@ -35,25 +35,25 @@
         <counts>
           <entry key="" value="9" />
           <entry key="dummy" value="1" />
-          <entry key="py" value="5465" />
+          <entry key="py" value="6474" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="5474" />
+          <entry key="Python" value="6483" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="png" value="2" />
-          <entry key="py" value="3" />
+          <entry key="py" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="2" />
-          <entry key="Python" value="3" />
+          <entry key="Python" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -63,7 +63,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
+            <state relative-caret-position="391">
               <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="23" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -72,10 +72,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Decryptor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="-24">
               <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -87,10 +87,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Statistics.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1546735765843" expanded="true" signature="373:378" ph="..." />
+                <marker date="1546735765843" expanded="true" signature="1144:1145" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Encryptor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="11" />
+            <state relative-caret-position="335">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -101,14 +115,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cryptography.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+            <state relative-caret-position="78">
+              <caret line="27" column="66" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
-                <marker date="1546504619331" expanded="true" signature="58:340" ph="..." />
-                <marker date="1546504619331" expanded="true" signature="1385:1387" ph="..." />
-                <marker date="1546504619331" expanded="true" signature="2811:2813" ph="..." />
-                <marker date="1546504619331" expanded="true" signature="3970:4438" ph="..." />
+                <marker date="1546735495139" expanded="true" signature="58:340" ph="..." />
+                <marker date="1546735495139" expanded="true" signature="1410:1412" ph="..." />
+                <marker date="1546735495139" expanded="true" signature="2836:2838" ph="..." />
+                <marker date="1546735495139" expanded="true" signature="3995:4463" ph="..." />
               </folding>
             </state>
           </provider>
@@ -220,9 +234,10 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/FullCube.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/Cryptography.py" />
-        <option value="$PROJECT_DIR$/Encryptor.py" />
         <option value="$PROJECT_DIR$/Decryptor.py" />
+        <option value="$PROJECT_DIR$/Cryptography.py" />
+        <option value="$PROJECT_DIR$/Statistics.py" />
+        <option value="$PROJECT_DIR$/Encryptor.py" />
       </list>
     </option>
   </component>
@@ -272,7 +287,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Decryptor">
+  <component name="RunManager" selected="Python.Statistics">
     <configuration name="Decryptor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RubiksEncryption" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -317,7 +332,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="FullCube" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Statistics" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RubiksEncryption" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -329,8 +344,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FullCube.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Statistics.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -385,18 +399,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.FullCube" />
       <item itemvalue="Python.Encryptor" />
       <item itemvalue="Python.scratch" />
       <item itemvalue="Python.Decryptor" />
+      <item itemvalue="Python.Statistics" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Decryptor" />
+        <item itemvalue="Python.Statistics" />
         <item itemvalue="Python.Encryptor" />
+        <item itemvalue="Python.Decryptor" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.scratch" />
-        <item itemvalue="Python.FullCube" />
       </list>
     </recent_temporary>
   </component>
@@ -480,28 +494,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Cryptography.py</url>
-          <line>118</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
     <entry file="file://$PROJECT_DIR$/bpg_part.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Element.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scrambled.png">
       <provider selected="true" editor-type-id="images" />
@@ -576,9 +572,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Element.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
+        <state relative-caret-position="391">
           <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="23" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -588,36 +591,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Cryptography.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+        <state relative-caret-position="78">
+          <caret line="27" column="66" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <marker date="1546504619331" expanded="true" signature="58:340" ph="..." />
-            <marker date="1546504619331" expanded="true" signature="1385:1387" ph="..." />
-            <marker date="1546504619331" expanded="true" signature="2811:2813" ph="..." />
-            <marker date="1546504619331" expanded="true" signature="3970:4438" ph="..." />
+            <marker date="1546735495139" expanded="true" signature="58:340" ph="..." />
+            <marker date="1546735495139" expanded="true" signature="1410:1412" ph="..." />
+            <marker date="1546735495139" expanded="true" signature="2836:2838" ph="..." />
+            <marker date="1546735495139" expanded="true" signature="3995:4463" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Encryptor.py">
+    <entry file="file://$PROJECT_DIR$/Statistics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="11" />
+        <state relative-caret-position="335">
+          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1546735765843" expanded="true" signature="373:378" ph="..." />
+            <marker date="1546735765843" expanded="true" signature="1144:1145" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Decryptor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="-24">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <marker date="1546506172494" expanded="true" signature="333:335" ph="..." />
             <marker date="1546506172494" expanded="true" signature="372:699" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Encryptor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

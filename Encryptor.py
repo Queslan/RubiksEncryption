@@ -19,7 +19,7 @@ def encrypt_all_channels():
 
 
 start_time = time.time()
-image_og = iP.get_image("bpg_part.png")
+image_og = iP.get_image("gray8bit.png")
 encryption = cG.Cryptography(image_og)
 encryption.split_color_channels()
 encryption.generate_scrambling_vectors(8)

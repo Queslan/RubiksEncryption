@@ -24,8 +24,8 @@ class Cryptography:
 
     def xor_operation(self, source_list, vector_element):
         copy_to_return = source_list.copy()
-        for element in copy_to_return:
-             element = element ^ vector_element
+        for i in range(len(copy_to_return)):
+            copy_to_return[i] = copy_to_return[i] ^ vector_element
         return copy_to_return
 
 
