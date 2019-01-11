@@ -4,17 +4,22 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 def histogram():
-    img = cv2.imread('rubik_colors.png')
-    color = ('b','g','r')
-    for i,col in enumerate(color):
-        histr = cv2.calcHist([img],[i],None,[256],[0,256])
-        plt.plot(histr,color = col)
-        plt.xlim([0,256])
+    img = cv2.imread('bpg_part.png')
+    b, g, r = cv2.split(img)
+    plt.hist(b.ravel(), 256, [0, 256]);
+    plt.hist(g.ravel(), 256, [0, 256]);
+    plt.hist(r.ravel(), 256, [0, 256]);
     plt.show()
 
+def histogram2():
+    img = cv2.imread('bpg_part.png', 0)
+    plt.hist(img.ravel(), 256, [0, 256]);
+    plt.show()
+#histogram2()
 
+#histogram()
 def numbers_of_pixels_change_rate():
-    image_original = cv2.imread('gray8bit.png')
+    image_original = cv2.imread('black.png')
     image_encrypted = cv2.imread('scrambled.png')
     height = image_original.shape[0]
     width = image_original.shape[1]
@@ -37,7 +42,7 @@ numbers_of_pixels_change_rate()
 
 
 def unified_average_changing_intensity():
-    image_original = cv2.imread('gray8bit.png')
+    image_original = cv2.imread('black.png')
     image_encrypted = cv2.imread('scrambled.png')
     height = image_original.shape[0]
     width = image_original.shape[1]
