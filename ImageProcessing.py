@@ -4,7 +4,7 @@ from Element import Element
 
 
 def get_image(name):
-    return cv2.imread(name)
+    return cv2.imread(name, cv2.IMREAD_UNCHANGED)
 
 
 def show_image(name, image):

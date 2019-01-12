@@ -19,7 +19,7 @@ def histogram2():
 
 #histogram()
 def numbers_of_pixels_change_rate():
-    image_original = cv2.imread('black.png')
+    image_original = cv2.imread('img/rgb16bit.ppm')
     image_encrypted = cv2.imread('scrambled.png')
     height = image_original.shape[0]
     width = image_original.shape[1]
@@ -42,7 +42,7 @@ numbers_of_pixels_change_rate()
 
 
 def unified_average_changing_intensity():
-    image_original = cv2.imread('black.png')
+    image_original = cv2.imread('img/rgb16bit.ppm')
     image_encrypted = cv2.imread('scrambled.png')
     height = image_original.shape[0]
     width = image_original.shape[1]
@@ -54,7 +54,6 @@ def unified_average_changing_intensity():
         for h in range(height):
             for w in range(width):
                 difference = int(one_channel_original[h][w]) - int(one_channel_encrypted[h][w]) # with int cast
-                #difference = one_channel_original[h][w] - one_channel_encrypted[h][w]
                 sum_of_numbers += math.fabs(difference) / 255
 
         sum_of_all += sum_of_numbers
