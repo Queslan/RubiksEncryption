@@ -15,6 +15,8 @@ class Cryptography:
         self.vector_width = []
         self.modulo_row = 0
         self.modulo_column = 0
+        self.rotated_height_vector = []
+        self.rotated_width_vector = []
 
     def split_color_channels(self):  # B G R
         self.blue = self.image[:, :, 0]
@@ -34,7 +36,6 @@ class Cryptography:
             text_file.write('\n'.join(str(element) for element in self.vector_height.copy()))
         with open("Ws.txt", "w") as text_file:
             text_file.write('\n'.join(str(element) for element in self.vector_width.copy()))
-
         self.set_scramble_modulo()
 
     def load_generate_vectors(self):
@@ -42,6 +43,7 @@ class Cryptography:
             self.vector_height = list(map(int, f.read().splitlines()))
         with open('Ws.txt') as f:
             self.vector_width = list(map(int, f.read().splitlines()))
+        self.set_scramble_modulo()
 
     def change_current_image(self, image):
         self.image = image
@@ -50,9 +52,8 @@ class Cryptography:
         self.modulo_row = self.generate_scramble_modulo(self.vector_height)
         self.modulo_column = self.generate_scramble_modulo(self.vector_width)
 
-    @staticmethod
-    def generate_scramble_modulo(vector):
-        return ((vector[11]+vector[22]+vector[33])*vector[55]) % (len(vector) - 1)
+    def generate_scramble_modulo(self, vector):
+        return ((vector[0]+vector[self.height-1])*vector[self.height//2]) % self.height + 100
 
     def column_scramble(self, scramble, column):
         elements_sum = 0
@@ -62,7 +63,7 @@ class Cryptography:
         shift_direction = modulo_shift_column % 2
         if not scramble:
             shift_direction -= 1
-        if shift_direction != 0:
+        if shift_direction == 0:
             self.image[:, column] = np.roll(self.image[:, column], -modulo_shift_column)
         else:
             self.image[:, column] = np.roll(self.image[:, column], modulo_shift_column)
@@ -77,20 +78,38 @@ class Cryptography:
         shift_direction = modulo_shift_row % 2
         if not scramble:
             shift_direction -= 1
-        if shift_direction != 0:
+        if shift_direction == 0:
             self.image[row, :] = np.roll(self.image[row, :], modulo_shift_row)
         else:
             self.image[row, :] = np.roll(self.image[row, :], -modulo_shift_row)
 
     def circular_scramble_alternate(self):
-        number_of_iterations = self.generate_number_of_iterations() + 3
+        number_of_iterations = self.generate_number_of_iterations()
+        start_option = (self.vector_height[0] + self.vector_width[0]) % 2
         for j in range(number_of_iterations):
             for i in range(self.width):
-                self.row_scramble(True, i)
-                self.column_scramble(True, i)
+                if start_option == 0:
+                    self.row_scramble(True, i)
+                    self.column_scramble(True, i)
+                else:
+                    self.column_scramble(True, i)
+                    self.row_scramble(True, i)
+
+    def circular_un_scramble_alternate(self):
+        number_of_iterations = self.generate_number_of_iterations()
+        start_option = (self.vector_height[0] + self.vector_width[0]) % 2
+        for j in range(number_of_iterations):
+            for i in range(self.width-1, -1, -1):
+                if start_option != 0:
+                    self.row_scramble(False, i)
+                    self.column_scramble(False, i)
+                else:
+                    self.column_scramble(False, i)
+                    self.row_scramble(False, i)
 
     def generate_number_of_iterations(self):
-        return ((self.vector_height[7]+self.vector_height[77])*(self.vector_width[7]+self.vector_width[77])) % 4
+        return ((self.vector_height[0]+self.vector_height[self.height//2]) *
+                (self.vector_width[0]+self.vector_width[self.width//2])) % 4 + 2
 
     @staticmethod
     def xor_operation(source_list, vector_element):
@@ -99,31 +118,41 @@ class Cryptography:
             copy_to_return[i] = copy_to_return[i] ^ vector_element
         return copy_to_return
 
-    def rows_xor_operation(self):
-        for row in range(self.height):
-            rotated_height_vector = self.vector_height[::-1]
-            option = row % 2
-            if option != 0:
-                self.image[row, :] = self.xor_operation(self.image[row], self.vector_height[row])
-            else:
-                self.image[row, :] = self.xor_operation(self.image[row], rotated_height_vector[row])
+    def rows_xor_operation(self, row):
+        rotated_height_vector = self.vector_height[::-1]
+        option = row % 2
+        if option != 0:
+            self.image[row, :] = self.xor_operation(self.image[row], self.vector_height[row])
+        else:
+            self.image[row, :] = self.xor_operation(self.image[row], rotated_height_vector[row])
 
-    def columns_xor_operation(self):
-        for column in range(self.width):
-            rotated_width_vector = self.vector_width[::-1]
-            option = column % 2
-            if option != 0:
-                self.image[:, column] = self.xor_operation(self.image[:, column], self.vector_width[column])
-            else:
-                self.image[:, column] = self.xor_operation(self.image[:, column], rotated_width_vector[column])
+    def columns_xor_operation(self, column):
+        rotated_width_vector = self.vector_width[::-1]
+        option = column % 2
+        if option != 0:
+            self.image[:, column] = self.xor_operation(self.image[:, column], self.vector_width[column])
+        else:
+            self.image[:, column] = self.xor_operation(self.image[:, column], rotated_width_vector[column])
 
     def xor_encryption(self):
-        self.rows_xor_operation()
-        self.columns_xor_operation()
+        start_option = (self.vector_height[0] + self.vector_width[0]) % 2
+        for i in range(self.height):
+            if start_option == 0:
+                self.rows_xor_operation(i)
+                self.columns_xor_operation(i)
+            else:
+                self.columns_xor_operation(i)
+                self.rows_xor_operation(i)
 
     def xor_decryption(self):
-        self.columns_xor_operation()
-        self.rows_xor_operation()
+        start_option = (self.vector_height[0] + self.vector_width[0]) % 2
+        for i in range(self.height):
+            if start_option != 0:
+                self.rows_xor_operation(i)
+                self.columns_xor_operation(i)
+            else:
+                self.columns_xor_operation(i)
+                self.rows_xor_operation(i)
 
 ##############################################################################################
     def row_scramble_standard(self, scramble):

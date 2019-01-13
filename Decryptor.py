@@ -7,7 +7,7 @@ import time
 def remove_scramble(scrambled_image):
     decryption.change_current_image(scrambled_image)
     decryption.xor_decryption()
-    decryption.un_scramble()
+    decryption.circular_un_scramble_alternate()
 
 
 def remove_scramble_color_channels():

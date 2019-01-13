@@ -7,7 +7,7 @@ import time
 def encrypt_image(image):
     encryption.change_current_image(image)
     encryption.circular_scramble_alternate()
-    #encryption.xor_encryption()
+    encryption.xor_encryption()
 
 
 def encrypt_all_channels():
@@ -17,10 +17,11 @@ def encrypt_all_channels():
 
 
 start_time = time.time()
-image_og = iP.get_image("img/lena_gray.png")
+image_og = iP.get_image("img/rgb16bit.ppm")
 encryption = cG.Cryptography(image_og)
 encryption.split_color_channels()
 encryption.generate_scrambling_vectors()
+#encryption.load_generate_vectors()
 cv2.imshow("Before scramble", image_og)
 
 encrypt_all_channels()
