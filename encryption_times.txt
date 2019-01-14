@@ -1,0 +1,11 @@
+lena_gray.png : 2.55
+lena_gray.png : 2.61
+lena_gray.png : 2.55
+lena_color.png : 7.68
+lena_color.png : 7.85
+baboon_color.png : 7.43
+baboon_color.png : 7.46
+baboon_color.png : 7.44
+lena_gray.png : 2.51
+baboon_gray.jpg : 0.50
+baboon_gray.png : 2.47

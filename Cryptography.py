@@ -2,7 +2,6 @@ from random import randint
 import numpy as np
 
 class Cryptography:
-    image = None
     blue = None
     red = None
     green = None
@@ -22,6 +21,26 @@ class Cryptography:
         self.blue = self.image[:, :, 0]
         self.green = self.image[:, :, 1]
         self.red = self.image[:, :, 2]
+
+
+    def set_image_to_blue_channel(self):
+        self.change_current_image(self.blue)
+
+    def set_image_to_green_channel(self):
+        self.change_current_image(self.green)
+
+    def set_image_to_red_channel(self):
+        self.change_current_image(self.red)
+
+    def equalize_all_channels(self):
+        self.red = 0
+        self.green = 0
+
+    @staticmethod
+    def check_if_gray_color(image):
+        if np.all(image[:, :, 0] == image[:, :, 1]) and np.all(image[:, :, 1] == image[:, :, 2]):
+            return True
+        return False
 
     def generate_scrambling_vectors(self):
         image_type = self.image.dtype
@@ -84,8 +103,8 @@ class Cryptography:
             self.image[row, :] = np.roll(self.image[row, :], -modulo_shift_row)
 
     def circular_scramble_alternate(self):
-        number_of_iterations = self.generate_number_of_iterations()
-        start_option = (self.vector_height[0] + self.vector_width[0]) % 2
+        number_of_iterations = 4#self.generate_number_of_iterations()
+        start_option = 0#(self.vector_height[0] + self.vector_width[0]) % 2
         for j in range(number_of_iterations):
             for i in range(self.width):
                 if start_option == 0:
@@ -96,8 +115,8 @@ class Cryptography:
                     self.row_scramble(True, i)
 
     def circular_un_scramble_alternate(self):
-        number_of_iterations = self.generate_number_of_iterations()
-        start_option = (self.vector_height[0] + self.vector_width[0]) % 2
+        number_of_iterations = 4#self.generate_number_of_iterations()
+        start_option = 0#(self.vector_height[0] + self.vector_width[0]) % 2
         for j in range(number_of_iterations):
             for i in range(self.width-1, -1, -1):
                 if start_option != 0:

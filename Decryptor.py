@@ -4,26 +4,37 @@ import Cryptography as cG
 import time
 
 
-def remove_scramble(scrambled_image):
-    decryption.change_current_image(scrambled_image)
+def remove_scramble():
     decryption.xor_decryption()
     decryption.circular_un_scramble_alternate()
 
 
 def remove_scramble_color_channels():
-    remove_scramble(decryption.blue)
-    remove_scramble(decryption.green)
-    remove_scramble(decryption.red)
+    if len(main_image.shape) < 3:
+        remove_scramble()
+        return
+    gray = cG.Cryptography.check_if_gray_color(main_image)
+    decryption.set_image_to_blue_channel()
+    remove_scramble()
+    if gray:
+        main_image[:, :, 1] = main_image[:, :, 0]
+        main_image[:, :, 2] = main_image[:, :, 0]
+    else:
+        decryption.set_image_to_green_channel()
+        remove_scramble()
+        decryption.set_image_to_red_channel()
+        remove_scramble()
 
 
+main_image = iP.get_image('encrypted/baboon_gray_encrypted.png')
 start_time = time.time()
-image_og = iP.get_image('scrambled.png')
-decryption = cG.Cryptography(image_og)
+decryption = cG.Cryptography(main_image)
 decryption.load_generate_vectors()
-decryption.split_color_channels()
-cv2.imshow("Scrambled image", image_og)
+if len(main_image.shape) > 2:
+    decryption.split_color_channels()
+cv2.imshow("Scrambled image", main_image)
 remove_scramble_color_channels()
-iP.show_image("Scramble removed", image_og)
+iP.show_image("Scramble removed", main_image)
 elapsed_time = time.time() - start_time
 print(elapsed_time)
 
