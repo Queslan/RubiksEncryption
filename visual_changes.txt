@@ -1,0 +1,15 @@
+lena_color.png - NPCR: 99.61 UACI: 30.42
+lena_color.png - NPCR: 99.61 UACI: 30.42
+lena_color.png - NPCR: 99.61 UACI: 30.42
+lena_gray.png - NPCR: 99.61 UACI: 28.64
+lena_gray.png - NPCR: 99.61 UACI: 28.64
+lena_gray.png - NPCR: 99.61 UACI: 28.64
+black.png - NPCR: 99.60 UACI: 49.92
+black.png - NPCR: 99.60 UACI: 49.92
+black.png - NPCR: 99.60 UACI: 49.92
+baboon_color.png - NPCR: 99.62 UACI: 29.95
+baboon_color.png - NPCR: 99.62 UACI: 29.95
+baboon_color.png - NPCR: 99.62 UACI: 29.95
+baboon_gray.png - NPCR: 99.60 UACI: 27.93
+baboon_gray.png - NPCR: 99.60 UACI: 27.93
+baboon_gray.png - NPCR: 99.60 UACI: 27.93
