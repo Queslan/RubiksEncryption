@@ -13,3 +13,4 @@ baboon_color.png : 8.15
 baboon_gray.png : 2.82
 baboon_gray.png : 2.67
 baboon_gray.png : 2.66
+baboon_gray.png : 2.58

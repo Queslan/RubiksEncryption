@@ -1,12 +1,15 @@
 from random import randint
 import numpy as np
+import ImageProcessing as iP
 
 class Cryptography:
     blue = None
     red = None
     green = None
 
-    def __init__(self, image):
+    def __init__(self, path):
+        image = iP.get_image(path)
+        self.main_image = image
         self.image = image
         self.height = image.shape[0]
         self.width = image.shape[1]

@@ -1,45 +1,42 @@
-import ImageProcessing as iP
 import cv2
-import Cryptography as cG
-import time
-import numpy as np
+from Cryptography import Cryptography
 
 
-def encrypt_image():
-    encryption.circular_scramble_alternate()
-    encryption.xor_encryption()
+class Encryptor(Cryptography):
+
+    def __init__(self, path):
+        super().__init__(path)
+        if len(self.image.shape) > 2:
+            self.split_color_channels()
+        self.generate_scrambling_vectors()
+        self.encrypt_all_channels()
+        self.encryption_path = "encrypted/encrypted.png"
+
+    def encrypt_image(self):
+        self.circular_scramble_alternate()
+        self.xor_encryption()
+
+    def encrypt_all_channels(self):
+        if len(self.image.shape) < 3:
+            self.encrypt_image()
+            return
+        gray = Encryptor.check_if_gray_color(self.image)
+        self.set_image_to_blue_channel()
+        self.encrypt_image()
+        if gray:
+            self.main_image[:, :, 1] = self.main_image[:, :, 0]
+            self.main_image[:, :, 2] = self.main_image[:, :, 0]
+        else:
+            self.set_image_to_green_channel()
+            self.encrypt_image()
+            self.set_image_to_red_channel()
+            self.encrypt_image()
+
+    def save_file(self):
+        cv2.imwrite(self.encryption_path, self.main_image)
+
+    def show_encrypted(self):
+        cv2.imshow('After scramble', self.main_image)
+        cv2.waitKey(0)
 
 
-def encrypt_all_channels():
-    if len(main_image.shape) < 3:
-        encrypt_image()
-        return
-    gray = cG.Cryptography.check_if_gray_color(main_image)
-    encryption.set_image_to_blue_channel()
-    encrypt_image()
-    if gray:
-        main_image[:, :, 1] = main_image[:, :, 0]
-        main_image[:, :, 2] = main_image[:, :, 0]
-    else:
-        encryption.set_image_to_green_channel()
-        encrypt_image()
-        encryption.set_image_to_red_channel()
-        encrypt_image()
-
-
-image_name = 'baboon_gray'
-image_format = '.png'
-main_image = iP.get_image('img/' + image_name + image_format)
-start_time = time.time()
-encryption = cG.Cryptography(main_image)
-if len(main_image.shape) > 2:
-    encryption.split_color_channels()
-encryption.generate_scrambling_vectors()
-encrypt_all_channels()
-elapsed_time = time.time() - start_time
-with open("encryption_times.txt", "a") as text_file:
-    text_file.write(image_name+image_format + ' : ' + '%.2f' % elapsed_time + '\n')
-cv2.imwrite('encrypted/' + image_name +'_encrypted' + image_format, main_image)
-cv2.imshow('After scramble', main_image)
-
-cv2.waitKey(0)

@@ -1,41 +1,32 @@
-import cv2
-import ImageProcessing as iP
-import Cryptography as cG
-import time
+from Cryptography import Cryptography
 
 
-def remove_scramble():
-    decryption.xor_decryption()
-    decryption.circular_un_scramble_alternate()
+class Decryptor(Cryptography):
 
+    def __init__(self, path):
+        super().__init__(path)
+        self.load_generate_vectors()
+        if len(self.main_image.shape) > 2:
+            self.split_color_channels()
+        self.remove_scramble_color_channels()
 
-def remove_scramble_color_channels():
-    if len(main_image.shape) < 3:
-        remove_scramble()
-        return
-    gray = cG.Cryptography.check_if_gray_color(main_image)
-    decryption.set_image_to_blue_channel()
-    remove_scramble()
-    if gray:
-        main_image[:, :, 1] = main_image[:, :, 0]
-        main_image[:, :, 2] = main_image[:, :, 0]
-    else:
-        decryption.set_image_to_green_channel()
-        remove_scramble()
-        decryption.set_image_to_red_channel()
-        remove_scramble()
+    def remove_scramble(self):
+        self.xor_decryption()
+        self.circular_un_scramble_alternate()
 
+    def remove_scramble_color_channels(self):
+        if len(self.main_image.shape) < 3:
+            self.remove_scramble()
+            return
+        gray = self.check_if_gray_color(self.main_image)
+        self.set_image_to_blue_channel()
+        self.remove_scramble()
+        if gray:
+            self.main_image[:, :, 1] = self.main_image[:, :, 0]
+            self.main_image[:, :, 2] = self.main_image[:, :, 0]
+        else:
+            self.set_image_to_green_channel()
+            self.remove_scramble()
+            self.set_image_to_red_channel()
+            self.remove_scramble()
 
-main_image = iP.get_image('encrypted/baboon_gray_encrypted.png')
-start_time = time.time()
-decryption = cG.Cryptography(main_image)
-decryption.load_generate_vectors()
-if len(main_image.shape) > 2:
-    decryption.split_color_channels()
-cv2.imshow("Scrambled image", main_image)
-remove_scramble_color_channels()
-iP.show_image("Scramble removed", main_image)
-elapsed_time = time.time() - start_time
-print(elapsed_time)
-
-cv2.waitKey(0)
