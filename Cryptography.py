@@ -25,7 +25,6 @@ class Cryptography:
         self.green = self.image[:, :, 1]
         self.red = self.image[:, :, 2]
 
-
     def set_image_to_blue_channel(self):
         self.change_current_image(self.blue)
 
@@ -106,8 +105,8 @@ class Cryptography:
             self.image[row, :] = np.roll(self.image[row, :], -modulo_shift_row)
 
     def circular_scramble_alternate(self):
-        number_of_iterations = 4#self.generate_number_of_iterations()
-        start_option = 0#(self.vector_height[0] + self.vector_width[0]) % 2
+        number_of_iterations = 4  # self.generate_number_of_iterations()
+        start_option = 0  # (self.vector_height[0] + self.vector_width[0]) % 2
         for j in range(number_of_iterations):
             for i in range(self.width):
                 if start_option == 0:
@@ -118,8 +117,8 @@ class Cryptography:
                     self.row_scramble(True, i)
 
     def circular_un_scramble_alternate(self):
-        number_of_iterations = 4#self.generate_number_of_iterations()
-        start_option = 0#(self.vector_height[0] + self.vector_width[0]) % 2
+        number_of_iterations = 4  # self.generate_number_of_iterations()
+        start_option = 0  # (self.vector_height[0] + self.vector_width[0]) % 2
         for j in range(number_of_iterations):
             for i in range(self.width-1, -1, -1):
                 if start_option != 0:
@@ -190,6 +189,7 @@ class Cryptography:
                 self.image[row, :] = np.roll(self.image[row, :], self.vector_height[row])
             else:
                 self.image[row, :] = np.roll(self.image[row, :], -self.vector_height[row])
+
     def column_scramble_standard(self, scramble):
         for column in range(self.width):
             elements_sum = 0

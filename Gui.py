@@ -11,14 +11,17 @@ except AttributeError:
 
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
+
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
+
 class Ui_MainWindow(object):
     file_path = ""
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(830, 630)
@@ -51,7 +54,6 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.button_file, 4, 0, 1, 1)
         self.button_file.clicked.connect(self.open_file)
 
-
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -83,7 +85,6 @@ class Ui_MainWindow(object):
         pixmap = self.parse_image(encryption.main_image)
         self.label_image.setPixmap(pixmap)
         self.file_path = encryption.encryption_path
-
 
     def parse_image(self, cvimage):
         height = cvimage.shape[0]

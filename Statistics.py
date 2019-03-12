@@ -2,26 +2,24 @@ import cv2
 import math
 import numpy as np
 from matplotlib import pyplot as plt
-image_name = 'baboon_gray'
-image_format = '.png'
-image_original = cv2.imread('img/'+image_name+image_format)
-image_encrypted = cv2.imread('encrypted/'+image_name+'_encrypted'+image_format)
+import random
 
 
-def histogram():
-    b, g, r = cv2.split(image_original)
-    plt.hist(b.ravel(), 256, [0, 256]);
-    plt.hist(g.ravel(), 256, [0, 256]);
-    plt.hist(r.ravel(), 256, [0, 256]);
-    plt.show()
+def histogram(image_content):
+    b, g, r = cv2.split(image_content)
+    if np.array_equal(b, g) and np.array_equal(g, r):
+        plt.hist(b.ravel(), 256, [0, 256], color='black')
+    else:
+        plt.hist(b.ravel(), 256, [0, 256], color='blue')
+        plt.hist(g.ravel(), 256, [0, 256], color='green')
+        plt.hist(r.ravel(), 256, [0, 256], color='red')
+    plt.title(image_name)
+    plt.savefig('histograms/' + image_name)
+    #plt.show()
+    plt.close()
 
 
-def histogram2():
-    plt.hist(image_original.ravel(), 256, [0, 256]);
-    plt.show()
-
-
-def numbers_of_pixels_change_rate():
+def numbers_of_pixels_change_rate(image_original, image_encrypted):
     height = image_original.shape[0]
     width = image_original.shape[1]
     sum_of_all = 0
@@ -49,7 +47,7 @@ def numbers_of_pixels_change_rate():
     return result
 
 
-def unified_average_changing_intensity():
+def unified_average_changing_intensity(image_original, image_encrypted):
     height = image_original.shape[0]
     width = image_original.shape[1]
     sum_of_all = 0
@@ -78,8 +76,37 @@ def unified_average_changing_intensity():
     return result
 
 
-with open("visual_changes.txt", "a") as text_file:
-    text_file.write(image_name+image_format + ' - NPCR: ' + '%.2f' % numbers_of_pixels_change_rate() +
-                    " UACI: " + '%.2f' % unified_average_changing_intensity() + '\n')
-print(numbers_of_pixels_change_rate())
-print(unified_average_changing_intensity())
+list_of_test_images = ['baboon_color.png', 'baboon_gray.png', 'black.png', 'lena_color.png', 'lena_gray.png']
+
+
+def make_histograms_for_list(images_list):
+    for image_name in images_list:
+        histogram(cv2.imread('img/' + image_name))
+        image_name = 'encrypted_' + image_name
+        histogram(cv2.imread('encrypted/' + image_name))
+
+        #with open("visual_changes.txt", "a") as text_file:
+         #   text_file.write(image_name + ' - NPCR: ' + '%.2f' % numbers_of_pixels_change_rate() +
+          #                  " UACI: " + '%.2f' % unified_average_changing_intensity() + '\n')
+
+
+def salt_and_pepper(image,prob):
+    output = np.zeros(image.shape,np.uint8)
+    thres = 1 - prob
+    for i in range(image.shape[0]):
+        for j in range(image.shape[1]):
+            rdn = random.random()
+            if rdn < prob:
+                output[i][j] = 0
+            elif rdn > thres:
+                output[i][j] = 255
+            else:
+                output[i][j] = image[i][j]
+    return output
+
+
+img = cv2.imread('encrypted/encrypted.png')
+attacked = salt_and_pepper(img, 0.05)
+cv2.imwrite('attacked.png', attacked)
+cv2.imshow('attacked', attacked)
+cv2.waitKey(0)
