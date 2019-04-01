@@ -10,7 +10,7 @@ class Encryptor(Cryptography):
             self.split_color_channels()
         self.generate_scrambling_vectors()
         self.encrypt_all_channels()
-        self.encryption_path = "encrypted/encrypted.png"
+        self.encryption_path = "result/encrypted.png"
 
     def encrypt_image(self):
         self.circular_scramble_alternate()

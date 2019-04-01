@@ -6,15 +6,17 @@ import random
 
 
 def histogram(image_content):
-    b, g, r = cv2.split(image_content)
-    if np.array_equal(b, g) and np.array_equal(g, r):
-        plt.hist(b.ravel(), 256, [0, 256], color='black')
+    if len(image_content.shape) < 3 :
+        plt.hist(image_content.ravel(), 256, [0, 256], color='black')
     else:
-        plt.hist(b.ravel(), 256, [0, 256], color='blue')
-        plt.hist(g.ravel(), 256, [0, 256], color='green')
-        plt.hist(r.ravel(), 256, [0, 256], color='red')
-    plt.title(image_name)
-    plt.savefig('histograms/' + image_name)
+        b, g, r = cv2.split(image_content)
+        if np.array_equal(b, g) and np.array_equal(g, r):
+            plt.hist(b.ravel(), 256, [0, 256], color='black')
+        else:
+            plt.hist(b.ravel(), 256, [0, 256], color='blue')
+            plt.hist(g.ravel(), 256, [0, 256], color='green')
+            plt.hist(r.ravel(), 256, [0, 256], color='red')
+    plt.savefig("result/histogram.png")
     #plt.show()
     plt.close()
 
@@ -105,8 +107,8 @@ def salt_and_pepper(image,prob):
     return output
 
 
-img = cv2.imread('encrypted/encrypted.png')
-attacked = salt_and_pepper(img, 0.05)
-cv2.imwrite('attacked.png', attacked)
-cv2.imshow('attacked', attacked)
-cv2.waitKey(0)
+#img = cv2.imread('encrypted/encrypted.png')
+#attacked = salt_and_pepper(img, 0.05)
+#cv2.imwrite('attacked.png', attacked)
+#cv2.imshow('attacked', attacked)
+#cv2.waitKey(0)

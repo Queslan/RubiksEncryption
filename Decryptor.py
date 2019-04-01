@@ -1,4 +1,5 @@
 from Cryptography import Cryptography
+import cv2
 
 
 class Decryptor(Cryptography):
@@ -9,6 +10,7 @@ class Decryptor(Cryptography):
         if len(self.main_image.shape) > 2:
             self.split_color_channels()
         self.remove_scramble_color_channels()
+        self.decryption_path = "result/decrypted.png"
 
     def remove_scramble(self):
         self.xor_decryption()
@@ -29,4 +31,7 @@ class Decryptor(Cryptography):
             self.remove_scramble()
             self.set_image_to_red_channel()
             self.remove_scramble()
+
+    def save_file(self):
+        cv2.imwrite(self.decryption_path, self.main_image)
 
