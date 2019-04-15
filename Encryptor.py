@@ -35,8 +35,4 @@ class Encryptor(Cryptography):
     def save_file(self):
         cv2.imwrite(self.encryption_path, self.main_image)
 
-    def show_encrypted(self):
-        cv2.imshow('After scramble', self.main_image)
-        cv2.waitKey(0)
-
 

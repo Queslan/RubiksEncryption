@@ -4,6 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import random
 import skimage
+from sklearn.metrics import mean_squared_error
 
 original_paths = ["img\lena_color.png",
         "img\lena_gray.png",
@@ -137,12 +138,32 @@ def count_entropy():
         print(entropy)
 
 
-count_entropy()
-#img = cv2.imread('encrypted/encrypted.png')
-#attacked = salt_and_pepper(img, 0.05)
-#cv2.imwrite('attacked.png', attacked)
+def count_mse(imageA, imageB):
+    # the 'Mean Squared Error' between the two images is the
+    # sum of the squared difference between the two images;
+    # NOTE: the two images must have the same dimension
+    err = np.sum((imageA.astype("float") - imageB.astype("float")) ** 2)
+    err /= float(imageA.shape[0] * imageA.shape[1])
+
+    # return the MSE, the lower the error, the more "similar"
+    # the two images are
+    return err
+
+
+#count_entropy()
+img = cv2.imread('result/encrypted.png')
+#cv2.imshow('original', img)
+attacked = salt_and_pepper(img, 0.05)
+cv2.imwrite('attacked.png', attacked)
 #cv2.imshow('attacked', attacked)
-#cv2.waitKey(0)
+cv2.waitKey(0)
+
+attacked_encrypted = cv2.imread('result/decrypted.png')
+original_img = cv2.imread("img/black.png")
+mse = np.mean((original_img - attacked_encrypted)**2)
+print(mse)
+second_mse = count_mse(original_img, attacked_encrypted)
+print(second_mse)
 
 ######## From scratch file #############
 import cv2
@@ -313,8 +334,8 @@ def create_vector_with_different_last_bit():
     with open("Ws2.txt", "w") as text_file:
         text_file.write('\n'.join(str(element) for element in vector_width.copy()))
 
-decryption_function()
-print(numbers_of_pixels_change_rate(ip.get_image("result/decrypted_origin.png"),
-                                    ip.get_image("result/decrypted_changed_bit.png")))
+#decryption_function()
+#print(numbers_of_pixels_change_rate(ip.get_image("result/decrypted_origin.png"),
+                                    #ip.get_image("result/decrypted_changed_bit.png")))
 
 

@@ -3,7 +3,7 @@ from Encryptor import Encryptor
 from Decryptor import Decryptor
 from Statistics import histogram
 import ImageProcessing as iP
-import os
+
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -128,15 +128,5 @@ class Ui_MainWindow(object):
         self.label_histogram.setPixmap(histogram_pixmap)
 
 
-if __name__ == "__main__":
-    import sys
 
-    if not os.path.exists("result"):
-        os.makedirs("result")
-    app = QtGui.QApplication(sys.argv)
-    MainWindow = QtGui.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
 
