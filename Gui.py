@@ -82,9 +82,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
-        self.button_encrypt.setText(_translate("MainWindow", "Encrypt", None))
-        self.button_decrypt.setText(_translate("MainWindow", "Decrypt", None))
-        self.button_chooseFile.setText(_translate("MainWindow", "Choose file", None))
+        self.button_encrypt.setText(_translate("MainWindow", "Zaszyfruj obraz", None))
+        self.button_decrypt.setText(_translate("MainWindow", "Odszyfruj obraz", None))
+        self.button_chooseFile.setText(_translate("MainWindow", "Wczytaj obraz", None))
 
     def open_file(self):
         self.file_path = QtGui.QFileDialog.getOpenFileName(None, 'Open File')
