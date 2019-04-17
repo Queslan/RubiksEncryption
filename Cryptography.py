@@ -53,16 +53,16 @@ class Cryptography:
         for j in range(self.width):
             self.vector_width.append(randint(0, biggest_element))
 
-        with open("Ww.txt", "w") as text_file:
+        with open("key/Ww.txt", "w") as text_file:
             text_file.write('\n'.join(str(element) for element in self.vector_height.copy()))
-        with open("Ws.txt", "w") as text_file:
+        with open("key/Ws.txt", "w") as text_file:
             text_file.write('\n'.join(str(element) for element in self.vector_width.copy()))
         self.set_scramble_modulo()
 
     def load_generate_vectors(self):
-        with open('Ww.txt') as f:
+        with open('key/Ww.txt') as f:
             self.vector_height = list(map(int, f.read().splitlines()))
-        with open('Ws.txt') as f:
+        with open('key/Ws.txt') as f:
             self.vector_width = list(map(int, f.read().splitlines()))
         self.set_scramble_modulo()
 

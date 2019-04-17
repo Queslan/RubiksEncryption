@@ -1,13 +1,9 @@
 from Gui import Ui_MainWindow
-import os
-from PyQt4 import QtGui
 
+from PyQt4 import QtGui
+import sys
 
 if __name__ == "__main__":
-    import sys
-
-    if not os.path.exists("result"):
-        os.makedirs("result")
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
     ui = Ui_MainWindow()

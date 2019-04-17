@@ -3,6 +3,7 @@ from Encryptor import Encryptor
 from Decryptor import Decryptor
 from Statistics import histogram
 import ImageProcessing as iP
+import os
 
 
 try:
@@ -94,6 +95,10 @@ class Ui_MainWindow(object):
         self.makeHistogram()
 
     def encrypt(self):
+        if not os.path.exists("result"):
+            os.makedirs("result")
+        if not os.path.exists("key"):
+             os.makedirs("key")
         encryption = Encryptor(self.file_path)
         encryption.save_file()
         parsed_image = self.parse_image(encryption.main_image, 500)
@@ -114,6 +119,10 @@ class Ui_MainWindow(object):
         return parsed_image
 
     def decrypt(self):
+        if not os.path.exists("key"):
+            os.makedirs("key")
+        if not os.path.exists("result"):
+            os.makedirs("result")
         decryption = Decryptor(self.file_path)
         decryption.save_file()
         parsed_image = self.parse_image(decryption.main_image, 500)
@@ -122,6 +131,10 @@ class Ui_MainWindow(object):
         self.makeHistogram()
 
     def makeHistogram(self):
+        if not os.path.exists("key"):
+            os.makedirs("key")
+        if not os.path.exists("result"):
+            os.makedirs("result")
         image = iP.get_image(self.file_path)
         histogram(image)
         histogram_pixmap = QtGui.QPixmap('result/histogram.png').scaledToWidth(320)
