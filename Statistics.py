@@ -4,6 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import random
 import skimage
+from Cryptography import Cryptography
 from sklearn.metrics import mean_squared_error
 
 original_paths = ["img\lena_color.png",
@@ -149,26 +150,64 @@ def count_mse(imageA, imageB):
     # the two images are
     return err
 
+def attack_operations():
+    img = cv2.imread('result/encrypted.png')
+    attacked = salt_and_pepper(img, 0.05)
+    cv2.imwrite('attacked.png', attacked)
+    attacked_encrypted = cv2.imread('result/decrypted.png')
+    original_img = cv2.imread("img/black.png")
+    second_mse = count_mse(original_img, attacked_encrypted)
+    print(second_mse)
 
-#count_entropy()
-img = cv2.imread('result/encrypted.png')
-#cv2.imshow('original', img)
-attacked = salt_and_pepper(img, 0.05)
-cv2.imwrite('attacked.png', attacked)
-#cv2.imshow('attacked', attacked)
-cv2.waitKey(0)
+def rows_correlation(image, N):
+    sum = 0
+    for i in range(N):
+        if i+1 < image.shape[0]:
+            x = image[i, :, 1], image[i+1, :, 1]
+            cor_coef = np.corrcoef(x)
+            sum += cor_coef
+    return sum / N
 
-attacked_encrypted = cv2.imread('result/decrypted.png')
-original_img = cv2.imread("img/black.png")
-mse = np.mean((original_img - attacked_encrypted)**2)
-print(mse)
-second_mse = count_mse(original_img, attacked_encrypted)
-print(second_mse)
+def columns_correlation(image, N):
+    sum = 0
+    for i in range(N):
+        if i + 1 < image.shape[0]:
+            x = image[:, i, 1], image[:, i + 1, 1]
+            cor_coef = np.corrcoef(x)
+            sum += cor_coef
+    return sum / N
+
+def diagonal_correlation(image, N):
+    sum = 0
+    for i in range(N):
+        if i + 1 < image.shape[0]:
+            ##I need array
+            x = make_diagonal(image[:, :, 1], i+10)
+            cor_coef = np.corrcoef(x)
+            sum += cor_coef
+    return sum / N
+
+def make_diagonal(image, iterator):
+    diagonal_of_image = []
+    for i in range(iterator + 1):
+        diagonal_of_image.append(image[i][i])
+
+    return np.array(diagonal_of_image)
+
+
+def get_all_corelations(image, N):
+    print("rows correlation: ")
+    print(rows_correlation(image, N))
+    print("columns corelation: ")
+    print(columns_correlation(image, N))
+    print("diagonal_correlation: ")
+    print(diagonal_correlation(image, N))
+
+image = cv2.imread("img/baboon_gray.png")
+get_all_corelations(image, 50)
 
 ######## From scratch file #############
-import cv2
-from Cryptography import Cryptography
-import ImageProcessing as ip
+
 
 def numbers_of_pixels_change_rate(image_original, image_encrypted):
     height = image_original.shape[0]
