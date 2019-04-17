@@ -182,15 +182,16 @@ def diagonal_correlation(image, N):
     for i in range(N):
         if i + 1 < image.shape[0]:
             ##I need array
-            x = make_diagonal(image[:, :, 1], i+10)
+            x = make_diagonal(image[:, :, 1], i, 100), make_diagonal(image[:, :, 1], i+1, 100)
             cor_coef = np.corrcoef(x)
             sum += cor_coef
     return sum / N
 
-def make_diagonal(image, iterator):
+def make_diagonal(image, iterator, N):
     diagonal_of_image = []
-    for i in range(iterator + 1):
-        diagonal_of_image.append(image[i][i])
+    half_width = len(image)//2
+    for i in range(N):
+        diagonal_of_image.append(image[half_width + i + iterator][half_width + i + iterator])
 
     return np.array(diagonal_of_image)
 
@@ -203,7 +204,7 @@ def get_all_corelations(image, N):
     print("diagonal_correlation: ")
     print(diagonal_correlation(image, N))
 
-image = cv2.imread("img/baboon_gray.png")
+image = cv2.imread("encrypted_lib/baboon_gray_encrypted.png")
 get_all_corelations(image, 50)
 
 ######## From scratch file #############
